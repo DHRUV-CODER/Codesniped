@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.1.0/highlight.min.js" integrity="sha512-z+/WWfyD5tccCukM4VvONpEtLmbAm5LDu7eKiyMQJ9m7OfPEDL7gENyDRL3Yfe8XAuGsS2fS4xSMnl6d30kqGQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/github-dark.min.css" integrity="sha512-rO+olRTkcf304DQBxSWxln8JXCzTHlKnIdnMUwYvQa9/Jd4cQaNkItIUj6Z4nvW1dqK0SKXLbn9h4KwZTNtAyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script>hljs.highlightAll();</script>
+  <link href='https://fonts.googleapis.com/css?family=Azeret Mono' rel='stylesheet'>
+  <link rel="stylesheet" href="/styles.css" />
+
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://metatags.io/">
+<meta property="og:title" content="<%= locals.title %> , Codesniped!">
+<meta property="og:description" content="Sharing Code and textual information made easier , No Login required!">
+
+<meta name="title" content="<%= locals.title %> , Codesniped!">
+<meta name="description" content="Sharing Code and textual information made easier , No Login required!">
+<meta name="keywords" content="hastebin,pastebin,codesniped,codepaste,CODESNIPED">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<meta name="revisit-after" content="1 days">
+<meta name="author" content="Mr Brexy">
+
+  <title><%= locals.title %> , Codesniped!</title>
+</head>
+<body>
+  <%- include("_buttons.ejs", { id: locals.id }) %>
+    <center><p id="title"><%= locals.title %></p></center>
+  <div class="wrapper">
+    <div class="line-numbers">
+      <% for (let i = 1; i <= code.split('\n').length; i++) { %>
+        <div><span data-text="<%= i %>"></span></div>
+      <% } %>
+    </div>
+    <pre><code
+      id="code-display"
+      class="<%= locals.language ? `language-${locals.language}` : "" %>"
+    ><%= code %></code></pre>
+  </div>
+</body>
+</html>
+
+<script>
+var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (isMobile) {
+  alert("sharing code on mobile 😳 really , get a life")
+}
+</script>

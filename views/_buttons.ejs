@@ -1,0 +1,23 @@
+<script src="https://kit.fontawesome.com/61ddec8850.js" crossorigin="anonymous"></script>
+<div class="center">
+  <div class="buttons-wrapper">
+    <!-- <a href="/" class="logo">WasteBin</a> -->
+    <div class="buttons">
+      <a href="/new" class="btn"><i class="far fa-plus-square fa-2x"></i></a>
+      <% if (locals.canSave) { %>
+        <button class="btn" type="submit"><i class="far fa-save fa-2x"></i></button>
+      <% } %>
+      <% if (locals.id != null) { %>
+        <a href="/<%= locals.id %>/duplicate" class="btn"><i class="far fa-copy fa-2x"></i></a>
+        <!-- <a href="/<%= locals.id %>/remove" class="btn"><i class="far fa-trash-alt fa-2x"></i></i></a> -->
+      <% } %>
+      <button class="btn" onclick="copytext()"><i class="far fa-clipboard fa-2x"></i></button>
+    </div>
+  </div>
+</div>
+<script>
+  function copytext() {
+  var copyText = window.location.href;
+  navigator.clipboard.writeText(copyText);
+}
+</script>

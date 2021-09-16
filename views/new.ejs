@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/autosize.js/5.0.0/autosize.min.js" integrity="sha512-zibtOTbkMuTivXGk5b8yJFGLIB1jF90NuV7gwNcVWL3xZx/I1HdkXU2pCZhadsuaS5HMUzabvRqK4WmWeKrwUg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link href='https://fonts.googleapis.com/css?family=Azeret Mono' rel='stylesheet'>
+
+  <!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://metatags.io/">
+<meta property="og:title" content="Make New Codesniped!">
+<meta property="og:description" content="Sharing Code and textual information made easier , No Login required!">
+
+<meta name="title" content="Make New Codesniped!">
+<meta name="description" content="Sharing Code and textual information made easier , No Login required!">
+<meta name="keywords" content="hastebin,pastebin,codesniped,codepaste,CODESNIPED">
+<meta name="robots" content="index, follow">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="language" content="English">
+<meta name="revisit-after" content="1 days">
+<meta name="author" content="Mr Brexy">
+
+  <title>Make New Codesniped!</title>
+</head>
+<body>
+  <form action="/save" method="POST">
+    <%- include("_buttons.ejs", { canSave: true }) %>
+    <center><span style="color: whitesmoke; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-weight: bold;">Filename:</span>
+      <input type="text" name="title" maxlength="20"  required >
+    </center>
+    
+    <div class="wrapper">
+      <div class="line-numbers">
+        <span style="color: white; font-weight: bolder;">&gt;</span>
+      </div>
+      <textarea required autofocus id="value" name="value"><%= locals.value %></textarea>
+    </div>
+  </form>
+  <script>
+    autosize(document.querySelector('textarea'))
+  </script>
+</body>
+</html>
